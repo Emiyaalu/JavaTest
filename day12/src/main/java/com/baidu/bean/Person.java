@@ -4,7 +4,7 @@ package com.baidu.bean;
  * Created by Emiya on 2017/3/20.
  */
 
-public class Person {
+public class Person implements Comparable<Person> {
     String name;
     int age;
 
@@ -34,7 +34,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "我的姓名是：" + name + ",我的年龄是：" + age;
+        return "我的姓名是：" + name + "...我的年龄是：" + age;
     }
 
     @Override
@@ -55,4 +55,11 @@ public class Person {
         result = 31 * result + age;
         return result;
     }
+
+    @Override
+    public int compareTo(Person o) {
+        int num = this.age - o.age;
+        return num == 0 ? this.name.compareTo(o.name) : num;
+    }
+
 }
