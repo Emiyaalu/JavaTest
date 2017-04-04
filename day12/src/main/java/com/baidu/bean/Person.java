@@ -1,15 +1,17 @@
 package com.baidu.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Emiya on 2017/3/20.
  */
 
-public class Person implements Comparable<Person> {
-    String name;
-    int age;
+public class Person implements Comparable<Person>, Serializable {
+    private String name;
+    private int age;
 
-    public Person() {
-    }
+    /*public Person() {
+    }*/
 
     public Person(String name, int age) {
         this.name = name;
@@ -60,6 +62,14 @@ public class Person implements Comparable<Person> {
     public int compareTo(Person o) {
         int num = this.age - o.age;
         return num == 0 ? this.name.compareTo(o.name) : num;
+    }
+
+    public void eat() {
+        System.out.println("今天吃了一顿金钱豹。");
+    }
+
+    public void eat(int num) {
+        System.out.println("今天吃了" + num + "顿金钱豹。");
     }
 
 }
